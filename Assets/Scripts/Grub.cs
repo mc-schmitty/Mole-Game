@@ -8,7 +8,7 @@ using UnityEngine.UIElements;
 public class Grub : HiddenObject
 {
     [SerializeField]
-    private ParticleSystem squishParticles;
+    private ParticleSystem[] squishParticles; 
     [SerializeField]
     private AudioClip squishNoise;
     [SerializeField]
@@ -17,6 +17,7 @@ public class Grub : HiddenObject
 
     private void Start()
     {
+        base.Initilize();
         //squishParticles = GetComponent<ParticleSystem>();
         squishPlayer = GetComponent<AudioSource>();
     }
@@ -33,7 +34,8 @@ public class Grub : HiddenObject
     {
         //squishParticles.Play();
         //AudioSource.PlayClipAtPoint(squishNoise, transform.position);
-        Instantiate(squishParticles, transform.position, transform.rotation);
+        foreach(ParticleSystem party in squishParticles)
+            Instantiate(party, transform.position, transform.rotation);
         Destroy(gameObject);
         
     }

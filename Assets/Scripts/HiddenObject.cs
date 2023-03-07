@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HiddenObject : MonoBehaviour
 {
-
+    public float revealRange = 50f;
     public bool IsHidden
     {
         get;
@@ -14,10 +14,14 @@ public class HiddenObject : MonoBehaviour
 
     void Start()
     {
+        Initilize();
+    }
+
+    protected virtual void Initilize()
+    {
         zLevel = transform.position.z;
         IsHidden = true;
     }
-
 
     public virtual void Hide()
     {
