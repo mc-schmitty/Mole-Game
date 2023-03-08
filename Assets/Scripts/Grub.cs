@@ -37,7 +37,6 @@ public class Grub : HiddenObject
         foreach(ParticleSystem party in squishParticles)
             Instantiate(party, transform.position, transform.rotation);
         Destroy(gameObject);
-        
     }
 
     public override void Reveal()

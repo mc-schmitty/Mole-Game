@@ -136,7 +136,7 @@ ParticleSystem:
   serializedVersion: 8
   lengthInSec: 0.3
   simulationSpeed: 1
-  stopAction: 0
+  stopAction: 2
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
@@ -4926,6 +4926,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f38a4519fbaa743b1fe0c0d1335455, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  revealRange: 50
   squishParticles:
   - {fileID: 0}
   squishNoise: {fileID: 8300000, guid: 74e699524a8abb641a6bbd6fc47e325a, type: 3}

@@ -4,14 +4,20 @@ using UnityEngine;
 
 public class Radar : MonoBehaviour
 {
+    [SerializeField]
+    private SniffDrawer sniffer;
+
     private List<HiddenObject> TrackedObjects;
+    private Dictionary<HiddenObject, SpriteRenderer> ObjectData;
 
     private void Start()
     {
         TrackedObjects = new List<HiddenObject>();
+        ObjectData = new Dictionary<HiddenObject, SpriteRenderer>();
         foreach(HiddenObject hidd in FindObjectsOfType<HiddenObject>())
         {
             TrackedObjects.Add(hidd);
+            ObjectData.Add(hidd, Instantiate(hidd.scentSprite).GetComponent<SpriteRenderer>());
         }
         Debug.Log("Scanning for: "+TrackedObjects.Count);
 
@@ -30,9 +36,11 @@ public class Radar : MonoBehaviour
             if(obj == null)
             {
                 TrackedObjects.RemoveAt(i);
+                Destroy(ObjectData[obj]);
+                ObjectData.Remove(obj);
                 i--;
             }
-            else if(obj.IsHidden && Vector2.Distance(obj.transform.position, pos) <= obj.revealRange)     // Test for objects in range
+            else if (obj.IsHidden && Vector2.Distance(obj.transform.position, pos) <= obj.revealRange)     // Test for objects in range
             {
                 Debug.Log("Revealed " + obj.name);
                 obj.Reveal();
@@ -41,6 +49,8 @@ public class Radar : MonoBehaviour
             
         }
 
+        sniffer.UpdateSprites(ObjectData);
+        //Debug.Log("List: " + TrackedObjects.Count + ", Dict: " + ObjectData.Count);
         return revealed;
     }
 

@@ -5685,6 +5685,7 @@ GameObject:
   - component: {fileID: 2060321287}
   - component: {fileID: 2060321288}
   - component: {fileID: 2060321289}
+  - component: {fileID: 2060321290}
   m_Layer: 0
   m_Name: MolePlayer
   m_TagString: Player
@@ -5789,6 +5790,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f540533f6ef15dd47896c275ff8f0ae2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sniffer: {fileID: 2060321290}
+--- !u!114 &2060321290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2060321282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a42bc2ae859fea489c604a9aa93f3bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sniffStrength: 0
+  radius: 1.5
+  queueSize: 60
+  decayLinear: -2
+  decayConstant: 0.06
+  decayExponential: 0.001
+  decayExponentialMax: 60
+  sniffMax: 50
+  angleRange: 60
+  sniffRange: 300
 --- !u!1001 &6356150854475015750
 PrefabInstance:
   m_ObjectHideFlags: 0
