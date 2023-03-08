@@ -5,6 +5,7 @@ using UnityEngine;
 public class SniffDrawer : MonoBehaviour
 {
     public float sniffStrength;
+    public bool gainSniff;     // Whether we should gain sniffStrength;
     [SerializeField]
     private float radius = 1f;
     [SerializeField]
@@ -33,13 +34,14 @@ public class SniffDrawer : MonoBehaviour
         sniffStrength = 0;
         positionQueue = new Queue<Vector3>();
         decayExpoValue = decayExponential;
+        gainSniff = true;
         //StartCoroutine(MovementAverageCoroutine());
     }
 
     void Update()
     {
         float deltaSniff = 0;
-        if (positionQueue.Count > 0) // Test mouse angle difference/delta
+        if (gainSniff && positionQueue.Count > 0) // Test mouse angle difference/delta
         {
             Vector3 convertedTransform = Camera.main.WorldToScreenPoint(transform.position);    // Convert camera to pixel coordinates
             deltaSniff = Vector3.Angle(Input.mousePosition - convertedTransform, positionQueue.Peek() - convertedTransform) * Time.deltaTime - decayConstant;     // Get angle between current mouse position and last mouse position, sub constDecay
@@ -57,7 +59,7 @@ public class SniffDrawer : MonoBehaviour
         Debug.DrawLine(transform.position, averageVector, Color.red);
         //Debug.Log("Average Angle: " + Vector2.SignedAngle(Vector2.up, averageVector - transform.position));
 
-        DrawSniffedObjects(Vector2.SignedAngle(Vector2.up, averageVector - transform.position));
+        DrawSniffedObjects(Vector2.SignedAngle(Vector2.up, averageVector - transform.position));      // Now draw the sniffers
     }
 
     public void UpdateSprites(Dictionary<HiddenObject, SpriteRenderer> newDict)
@@ -89,7 +91,7 @@ public class SniffDrawer : MonoBehaviour
                 
                 value.color = new Color(value.color.r, value.color.g, value.color.b, Mathf.Lerp(0, 1, sniffStrength / sniffMax));   // Alpha scales to sniff strength
                 // Scale scales to distance (0.5 - 0.01)scale, (1 - 100)
-                value.transform.localScale = Vector3.one * Mathf.Lerp(0.001f, 0.25f, Mathf.InverseLerp(50f, 1f, vect.magnitude));
+                value.transform.localScale = Vector3.one * Mathf.Lerp(0.01f, 0.40f, Mathf.InverseLerp(50f, 1f, vect.magnitude));
             }
             else
             {

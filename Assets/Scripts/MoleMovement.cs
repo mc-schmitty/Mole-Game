@@ -14,11 +14,15 @@ public class MoleMovement : MonoBehaviour
 
     [SerializeField]
     private bool autoMove = false;
+    private bool transformMove = true;
+    private float transMoveTimer = 0;
     private float rumblyFor = 0;    // How long speed is modified
     private Animator whateveryouwant;       // Animator variable
     private HoleDig digger;
     [SerializeField]
     private ParticleSystem dirtParticle;
+    [SerializeField]
+    private SniffDrawer sniffDrawer;
     private Rigidbody2D rb;
     private Collider2D[] contactsList;
 
@@ -40,11 +44,23 @@ public class MoleMovement : MonoBehaviour
 
         Rotate(mouseDirection);
         Move(mouseDirection, mousePos);
+        if (transMoveTimer <= 0)
+            transformMove = true;
+        transMoveTimer -= Time.deltaTime;
     }
 
     void Rotate(Vector3 mouseDirection)
     {
-        transform.eulerAngles = new Vector3(0, 0, Vector2.SignedAngle(Vector2.left, mouseDirection));       // Rotates towards the mouse
+        rb.angularVelocity = 0;
+        if (transformMove && rb.GetContacts(contactsList) == 0)
+        {
+            transform.eulerAngles = new Vector3(0, 0, Vector2.SignedAngle(Vector2.left, mouseDirection));       // Rotates towards the mouse
+        }
+        else
+        {
+            transformMove = false;
+            transMoveTimer = 0.2f;
+        }
         rb.SetRotation(Vector2.SignedAngle(Vector2.left, mouseDirection));
 
         float zCheck = transform.eulerAngles.z;
@@ -63,10 +79,18 @@ public class MoleMovement : MonoBehaviour
         rb.velocity = Vector2.zero;
         if (autoMove || Input.GetMouseButton(0) && mouseDirection.magnitude > 1f)       // make mole move towards mouse
         {
+            sniffDrawer.gainSniff = false;
             whateveryouwant.SetBool("moving", true);
             Vector2 mouseDir2d = mouseDirection.normalized;     // rb movement
-            if(rb.GetContacts(contactsList) == 0)
-                transform.position += new Vector3(mouseDirection.x, mouseDirection.y, 0).normalized * (speed + (rumblyFor>0?modSpeed:0)) * Time.deltaTime;    // non-rb movement
+            if (transformMove && rb.GetContacts(contactsList) == 0)
+            {
+                transform.position += new Vector3(mouseDirection.x, mouseDirection.y, 0).normalized * (speed + (rumblyFor > 0 ? modSpeed : 0)) * Time.deltaTime;    // non-rb movement
+            }
+            else    // If we collided, disable transform movement for a bit
+            {
+                transformMove = false;
+                transMoveTimer = 0.2f;
+            }
             rb.MovePosition(rb.position + new Vector2(mouseDirection.x, mouseDirection.y).normalized * (speed + (rumblyFor > 0 ? modSpeed : 0)) * Time.fixedDeltaTime); //rb movement
 
             // add rumbling
@@ -84,6 +108,7 @@ public class MoleMovement : MonoBehaviour
         }
         else
         {
+            sniffDrawer.gainSniff = true;
             whateveryouwant.SetBool("moving", false);
         }
     }

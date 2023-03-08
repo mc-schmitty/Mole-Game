@@ -5389,6 +5389,63 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!1001 &601179213
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6356150855353527497, guid: a42280e533aa1084ba629173c5126232, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6356150855353527497, guid: a42280e533aa1084ba629173c5126232, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 16.57
+      objectReference: {fileID: 0}
+    - target: {fileID: 6356150855353527497, guid: a42280e533aa1084ba629173c5126232, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.89
+      objectReference: {fileID: 0}
+    - target: {fileID: 6356150855353527497, guid: a42280e533aa1084ba629173c5126232, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6356150855353527497, guid: a42280e533aa1084ba629173c5126232, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6356150855353527497, guid: a42280e533aa1084ba629173c5126232, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6356150855353527497, guid: a42280e533aa1084ba629173c5126232, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6356150855353527497, guid: a42280e533aa1084ba629173c5126232, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6356150855353527497, guid: a42280e533aa1084ba629173c5126232, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6356150855353527497, guid: a42280e533aa1084ba629173c5126232, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6356150855353527497, guid: a42280e533aa1084ba629173c5126232, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6356150855353527498, guid: a42280e533aa1084ba629173c5126232, type: 3}
+      propertyPath: m_Name
+      value: grubby (4)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a42280e533aa1084ba629173c5126232, type: 3}
 --- !u!1001 &650984542
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5406,7 +5463,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6356150855353527497, guid: a42280e533aa1084ba629173c5126232, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.7
+      value: 6.49
       objectReference: {fileID: 0}
     - target: {fileID: 6356150855353527497, guid: a42280e533aa1084ba629173c5126232, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5614,6 +5671,63 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1341858069
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6356150855353527497, guid: a42280e533aa1084ba629173c5126232, type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6356150855353527497, guid: a42280e533aa1084ba629173c5126232, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -25.71
+      objectReference: {fileID: 0}
+    - target: {fileID: 6356150855353527497, guid: a42280e533aa1084ba629173c5126232, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -19.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 6356150855353527497, guid: a42280e533aa1084ba629173c5126232, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6356150855353527497, guid: a42280e533aa1084ba629173c5126232, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6356150855353527497, guid: a42280e533aa1084ba629173c5126232, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6356150855353527497, guid: a42280e533aa1084ba629173c5126232, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6356150855353527497, guid: a42280e533aa1084ba629173c5126232, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6356150855353527497, guid: a42280e533aa1084ba629173c5126232, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6356150855353527497, guid: a42280e533aa1084ba629173c5126232, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6356150855353527497, guid: a42280e533aa1084ba629173c5126232, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6356150855353527498, guid: a42280e533aa1084ba629173c5126232, type: 3}
+      propertyPath: m_Name
+      value: grubby (5)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a42280e533aa1084ba629173c5126232, type: 3}
 --- !u!1001 &1439789570
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5710,6 +5824,7 @@ MonoBehaviour:
   rumbly: 6
   autoMove: 0
   dirtParticle: {fileID: 558823330}
+  sniffDrawer: {fileID: 2060321290}
 --- !u!4 &2060321284
 Transform:
   m_ObjectHideFlags: 0
@@ -5804,6 +5919,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sniffStrength: 0
+  gainSniff: 0
   radius: 1.5
   queueSize: 60
   decayLinear: -2
