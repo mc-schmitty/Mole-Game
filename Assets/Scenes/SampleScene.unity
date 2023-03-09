@@ -5922,8 +5922,8 @@ MonoBehaviour:
   gainSniff: 0
   radius: 1.5
   queueSize: 60
-  decayLinear: -2
-  decayConstant: 0.06
+  decayLinear: 2
+  decayConstant: 0.04
   decayExponential: 0.001
   decayExponentialMax: 60
   sniffMax: 50

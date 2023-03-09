@@ -21,7 +21,7 @@ public class SniffDrawer : MonoBehaviour
     private float decayExpoValue;
     [SerializeField]
     private float sniffMax = 200f;
-    [SerializeField]
+    [SerializeField][Min(0)]
     private float angleRange = 60;
     [SerializeField]
     private float sniffRange = 300;
@@ -56,10 +56,16 @@ public class SniffDrawer : MonoBehaviour
 
         positionQueue.Enqueue(Input.mousePosition);
         Vector3 averageVector = Camera.main.ScreenToWorldPoint(GetAverage());
-        Debug.DrawLine(transform.position, averageVector, Color.red);
-        //Debug.Log("Average Angle: " + Vector2.SignedAngle(Vector2.up, averageVector - transform.position));
+        
+        Debug.DrawLine(transform.position, averageVector, Color.red);                           // Display the average direction of the mouse
+        //Debug.DrawRay(transform.position, averageVector-transform.position, Color.white);
+        Debug.DrawRay(transform.position, Quaternion.Euler(0, 0, angleRange) * (averageVector - transform.position), Color.white);      // Display the bounds of the search angle
+        Debug.DrawRay(transform.position, Quaternion.Euler(0, 0, -angleRange) * (averageVector - transform.position), Color.white);
 
-        DrawSniffedObjects(Vector2.SignedAngle(Vector2.up, averageVector - transform.position));      // Now draw the sniffers
+        //Debug.Log("Average Angle: " + Vector2.SignedAngle(Vector2.up, averageVector - transform.position));
+        
+
+        DrawSniffedObjects(Vector2.SignedAngle(Vector2.up, averageVector - transform.position));      // Now draw the sniffers with new angle
     }
 
     public void UpdateSprites(Dictionary<HiddenObject, SpriteRenderer> newDict)
@@ -83,7 +89,7 @@ public class SniffDrawer : MonoBehaviour
 
             // Check if we need to draw object
             // 1. angle within range; 2. within distance range; 
-            if(Mathf.Abs(sniffAngle - angle) < angleRange && vect.magnitude < sniffRange)
+            if((Mathf.Abs(sniffAngle - angle) < angleRange || Mathf.Abs(sniffAngle + 360 - angle) < angleRange || Mathf.Abs(sniffAngle - 360 - angle) < angleRange) && vect.magnitude < sniffRange)
             {
                 Vector3 newV = currentPos + (vect.normalized * radius);
                 newV.z = 0;

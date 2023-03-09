@@ -14,6 +14,7 @@ public class MoleMovement : MonoBehaviour
 
     [SerializeField]
     private bool autoMove = false;
+    [SerializeField]
     private bool transformMove = true;
     private float transMoveTimer = 0;
     private float rumblyFor = 0;    // How long speed is modified
@@ -42,25 +43,26 @@ public class MoleMovement : MonoBehaviour
         Vector3 mouseDirection = mousePos - transform.position;
         mouseDirection.z = transform.position.z;
 
+        // Check for physics collision
+        if(rb.GetContacts(contactsList) > 0)
+        {
+            transformMove = false;      // Disable transform movement if we collide for a bit
+            transMoveTimer = 0.15f;
+        }
+
         Rotate(mouseDirection);
         Move(mouseDirection, mousePos);
+
         if (transMoveTimer <= 0)
             transformMove = true;
-        transMoveTimer -= Time.deltaTime;
+        transMoveTimer = Mathf.Clamp(transMoveTimer - Time.deltaTime, 0, transMoveTimer);   // Enable transform move after no collisions for a bit
     }
 
     void Rotate(Vector3 mouseDirection)
     {
         rb.angularVelocity = 0;
-        if (transformMove && rb.GetContacts(contactsList) == 0)
-        {
+        if (transformMove)
             transform.eulerAngles = new Vector3(0, 0, Vector2.SignedAngle(Vector2.left, mouseDirection));       // Rotates towards the mouse
-        }
-        else
-        {
-            transformMove = false;
-            transMoveTimer = 0.2f;
-        }
         rb.SetRotation(Vector2.SignedAngle(Vector2.left, mouseDirection));
 
         float zCheck = transform.eulerAngles.z;
@@ -83,14 +85,7 @@ public class MoleMovement : MonoBehaviour
             whateveryouwant.SetBool("moving", true);
             Vector2 mouseDir2d = mouseDirection.normalized;     // rb movement
             if (transformMove && rb.GetContacts(contactsList) == 0)
-            {
                 transform.position += new Vector3(mouseDirection.x, mouseDirection.y, 0).normalized * (speed + (rumblyFor > 0 ? modSpeed : 0)) * Time.deltaTime;    // non-rb movement
-            }
-            else    // If we collided, disable transform movement for a bit
-            {
-                transformMove = false;
-                transMoveTimer = 0.2f;
-            }
             rb.MovePosition(rb.position + new Vector2(mouseDirection.x, mouseDirection.y).normalized * (speed + (rumblyFor > 0 ? modSpeed : 0)) * Time.fixedDeltaTime); //rb movement
 
             // add rumbling
