@@ -26,6 +26,7 @@ public class MoleMovement : MonoBehaviour
     private SniffDrawer sniffDrawer;
     private Rigidbody2D rb;
     private Collider2D[] contactsList;
+    private AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +35,7 @@ public class MoleMovement : MonoBehaviour
         digger = GetComponent<HoleDig>();
         rb = GetComponent<Rigidbody2D>();
         contactsList = new Collider2D[20];
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -106,5 +108,10 @@ public class MoleMovement : MonoBehaviour
             sniffDrawer.gainSniff = true;
             whateveryouwant.SetBool("moving", false);
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        audioSource.Play();
     }
 }

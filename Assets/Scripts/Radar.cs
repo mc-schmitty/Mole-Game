@@ -24,10 +24,11 @@ public class Radar : MonoBehaviour
         StartCoroutine(DoScan());
     }
 
-    public int Scan()       // Searches for nearby hidden objects
+    public (int revealed, int hidden) Scan()       // Searches for nearby hidden objects
     {
         Vector2 pos = transform.position;
         int revealed = 0;
+        int hidden = 0;
 
         HiddenObject obj;
         for(int i = 0; i < TrackedObjects.Count; i++)
@@ -39,19 +40,28 @@ public class Radar : MonoBehaviour
                 Destroy(ObjectData[obj]);
                 ObjectData.Remove(obj);
                 i--;
+                continue;
             }
-            else if (obj.IsHidden && Vector2.Distance(obj.transform.position, pos) <= obj.revealRange)     // Test for objects in range
+
+            float distance = Vector2.Distance(obj.transform.position, pos);
+            if (obj.IsHidden && distance <= obj.revealRange)     // Test for objects in range
             {
                 Debug.Log("Revealed " + obj.name);
                 obj.Reveal();
                 revealed++;
+            }
+            else if (!obj.IsHidden && distance >= obj.hideRange)
+            {
+                Debug.Log("Hidden " + obj.name);
+                obj.Hide();
+                hidden++;
             }
             
         }
 
         sniffer.UpdateSprites(ObjectData);
         //Debug.Log("List: " + TrackedObjects.Count + ", Dict: " + ObjectData.Count);
-        return revealed;
+        return (revealed, hidden);
     }
 
     IEnumerator DoScan()

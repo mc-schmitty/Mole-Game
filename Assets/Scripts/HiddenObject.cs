@@ -5,6 +5,7 @@ using UnityEngine;
 public class HiddenObject : MonoBehaviour
 {
     public float revealRange = 50f;
+    public float hideRange = 100f;
     public GameObject scentSprite;
     public bool IsHidden
     {

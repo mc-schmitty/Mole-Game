@@ -4977,6 +4977,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealRange: 4
+  hideRange: 8
   scentSprite: {fileID: 1742887309307575839, guid: 68656e0d1bbd58b45abcbb850c8591a1, type: 3}
   squishParticles:
   - {fileID: 6172325226313467183, guid: 99d710f14d4688348a6f5503f81b771c, type: 3}
