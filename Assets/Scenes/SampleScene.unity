@@ -6492,12 +6492,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4.2
-  modSpeed: -1
+  digSpeedModifier: -0.2
+  eatSpeedModifier: -4
   rumbly: 6
+  eatSlowdownDuration: 1
   autoMove: 0
   transformMove: 1
   dirtParticle: {fileID: 558823330}
   sniffDrawer: {fileID: 2060321290}
+  eatNoise:
+  - {fileID: 8300000, guid: 4f853edcf77732d488e0e8a8c1aec05d, type: 3}
+  digNoise:
+  - {fileID: 8300000, guid: d481d581e6768a844b8123c50958671c, type: 3}
+  - {fileID: 8300000, guid: 031bfd28879e1a741982a6021ef0d8ea, type: 3}
+  - {fileID: 8300000, guid: 17251ef096a14b94f8b1dfb39a359b58, type: 3}
 --- !u!4 &2060321284
 Transform:
   m_ObjectHideFlags: 0
@@ -6612,7 +6620,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 4f853edcf77732d488e0e8a8c1aec05d, type: 3}
+  m_audioClip: {fileID: 8300000, guid: d481d581e6768a844b8123c50958671c, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
