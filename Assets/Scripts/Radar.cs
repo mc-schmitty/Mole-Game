@@ -34,11 +34,11 @@ public class Radar : MonoBehaviour
         for(int i = 0; i < TrackedObjects.Count; i++)
         {
             obj = TrackedObjects[i];
-            if(obj == null)
+            if(obj == null)         // Stop tracking object if they are null
             {
                 TrackedObjects.RemoveAt(i);
-                Destroy(ObjectData[obj]);
-                ObjectData.Remove(obj);
+                Destroy(ObjectData[obj]);       // Actually this doesnt work
+                ObjectData.Remove(obj);         // Its always null, so uh
                 i--;
                 continue;
             }

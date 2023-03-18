@@ -13,7 +13,7 @@ public class Grub : HiddenObject
     private AudioClip squishNoise;
     [SerializeField]
     private AudioClip revealNoise;
-    private AudioSource squishPlayer;
+    protected AudioSource squishPlayer;
 
     private void Start()
     {
@@ -30,7 +30,7 @@ public class Grub : HiddenObject
         }
     }
 
-    public void Squash()
+    public virtual void Squash()
     {
         //squishParticles.Play();
         //AudioSource.PlayClipAtPoint(squishNoise, transform.position);
