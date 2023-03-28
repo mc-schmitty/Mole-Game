@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 939859238364424783}
   m_Layer: 0
   m_Name: worm
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,7 +84,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.86, y: 1.77}
+  m_Size: {x: 2.19, y: 0.78}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -124,7 +124,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 2, y: 1.3}
+  m_Size: {x: 2, y: 0.8}
   m_Direction: 1
 --- !u!198 &939859238364424750
 ParticleSystem:
@@ -4904,7 +4904,7 @@ ParticleSystemRenderer:
   m_MeshWeighting1: 1
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
-  m_MaskInteraction: 0
+  m_MaskInteraction: 2
 --- !u!82 &939859238364424744
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4915,7 +4915,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 74e699524a8abb641a6bbd6fc47e325a, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 0bfe78240283f9242b504898db650cf0, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -4925,7 +4925,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 5
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -4961,7 +4961,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.5
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -5014,12 +5014,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revealRange: 5
-  hideRange: 8
-  scentSprite: {fileID: 1742887309307575839, guid: 68656e0d1bbd58b45abcbb850c8591a1, type: 3}
+  hideRange: 8.5
+  scentSprite: {fileID: 8959646907276649133, guid: 2e8d667ad7016c74888b563192cecadb, type: 3}
   squishParticles:
   - {fileID: 6172325226313467183, guid: 79bb4b30b2b35354999a9409e1a535fe, type: 3}
   squishNoise: {fileID: 8300000, guid: 74e699524a8abb641a6bbd6fc47e325a, type: 3}
-  revealNoise: {fileID: 8300000, guid: 8b8b81dec260e6247af376eb98730192, type: 3}
+  revealNoise: {fileID: 8300000, guid: 0bfe78240283f9242b504898db650cf0, type: 3}
   speed: 2
   timeMoving: 2.5
   timeWaiting: 5

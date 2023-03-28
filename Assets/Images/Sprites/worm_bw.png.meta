@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 138db88ac5f07424fa9479a29b9e2426
+guid: cd89faa0c2e395448849eae83d2c2e0d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -100,11 +100,35 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: worms_flipped_0
+      name: worm_bw_0
       rect:
         serializedVersion: 2
         x: 10
@@ -118,83 +142,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4627a8775c3c84c4bb33ad51f133e0e9
-      internalID: 489045361
+      spriteID: d4f825e95de0aec46b71d7821cc234ae
+      internalID: -373045965
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: worms_flipped_2
-      rect:
-        serializedVersion: 2
-        x: 522
-        y: 16
-        width: 185
-        height: 94
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 11d827ce1fb9ec64a9d7fc4f1a5bbd8f
-      internalID: -1937500081
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: worms_flipped_4
-      rect:
-        serializedVersion: 2
-        x: 998
-        y: 58
-        width: 228
-        height: 47
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 11d717cb1f2f8564d82c48262b9acfca
-      internalID: 2115286351
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: worms_flipped_5
-      rect:
-        serializedVersion: 2
-        x: 1253
-        y: 11
-        width: 213
-        height: 95
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4173fb86b9e8b764ca5abeb270e9f535
-      internalID: -273884492
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: worms_flipped_1
+      name: worm_bw_1
       rect:
         serializedVersion: 2
         x: 259
-        y: 26
+        y: 27
         width: 219
-        height: 78
+        height: 77
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -202,20 +163,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b3c76d1a3fb50e74fab6b7e0629b3a92
-      internalID: -930930082
+      spriteID: 94d10d6b764a16849bd55d1f4b6830a4
+      internalID: -1599541949
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: worms_flipped_3
+      name: worm_bw_2
       rect:
         serializedVersion: 2
-        x: 753
-        y: 26
-        width: 219
-        height: 78
+        x: 527
+        y: 10
+        width: 213
+        height: 96
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -223,8 +184,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 80c985f8ef6f1ad40bf4ffb0c895cbe0
-      internalID: 1953070009
+      spriteID: fd90ba5ae17156047b8620beae3d09c0
+      internalID: -195469268
       vertices: []
       indices: 
       edges: []
@@ -240,12 +201,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      worms_flipped_0: 489045361
-      worms_flipped_4: 2115286351
-      worms_flipped_5: -273884492
-      worms_flipped_3: 1953070009
-      worms_flipped_1: -930930082
-      worms_flipped_2: -1937500081
+      worm_bw_0: -373045965
+      worm_bw_1: -1599541949
+      worm_bw_2: -195469268
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

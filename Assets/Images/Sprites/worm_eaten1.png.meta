@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 138db88ac5f07424fa9479a29b9e2426
+guid: 7678f9073e319bd41a812bfe2bbd9f48
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -100,131 +100,218 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: worms_flipped_0
+      name: worm_eaten1_1
       rect:
         serializedVersion: 2
-        x: 10
+        x: 16
         y: 58
-        width: 228
+        width: 222
         height: 47
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4627a8775c3c84c4bb33ad51f133e0e9
-      internalID: 489045361
+      spriteID: dc29d92c1477d7c44be4302d2d2bb39f
+      internalID: -426582562
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: worms_flipped_2
+      name: worm_eaten1_2
       rect:
         serializedVersion: 2
-        x: 522
-        y: 16
-        width: 185
-        height: 94
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 276
+        y: 24
+        width: 197
+        height: 83
+      alignment: 1
+      pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 11d827ce1fb9ec64a9d7fc4f1a5bbd8f
-      internalID: -1937500081
+      spriteID: e32efe7684bdd0e48b5c31d1f4ca755e
+      internalID: 863452441
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: worms_flipped_4
+      name: worm_eaten1_3
       rect:
         serializedVersion: 2
-        x: 998
-        y: 58
-        width: 228
+        x: 496
+        y: 8
+        width: 143
+        height: 101
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4645f144a94f3c48a3ae2d98d1514be
+      internalID: -1782366909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: worm_eaten1_4
+      rect:
+        serializedVersion: 2
+        x: 679
+        y: 18
+        width: 128
+        height: 87
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: deec78c9d1cab3646a72489b47c90b5b
+      internalID: 46944718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: worm_eaten1_5
+      rect:
+        serializedVersion: 2
+        x: 851
+        y: 51
+        width: 144
         height: 47
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 11d717cb1f2f8564d82c48262b9acfca
-      internalID: 2115286351
+      spriteID: b5cbd89e5b897ac49b4eb937044174c8
+      internalID: 539184543
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: worms_flipped_5
+      name: worm_eaten1_6
       rect:
         serializedVersion: 2
-        x: 1253
-        y: 11
-        width: 213
-        height: 95
-      alignment: 0
+        x: 1054
+        y: 33
+        width: 104
+        height: 100
+      alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4173fb86b9e8b764ca5abeb270e9f535
-      internalID: -273884492
+      spriteID: ccf7b5f4a2339ee4fad2b9035995d18e
+      internalID: -1596745464
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: worms_flipped_1
+      name: worm_eaten1_7
       rect:
         serializedVersion: 2
-        x: 259
-        y: 26
-        width: 219
-        height: 78
-      alignment: 0
+        x: 1218
+        y: 46
+        width: 52
+        height: 74
+      alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b3c76d1a3fb50e74fab6b7e0629b3a92
-      internalID: -930930082
+      spriteID: 9442efa90843ea045b5b827023aab15c
+      internalID: -1017590778
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: worms_flipped_3
+      name: worm_eaten1_8
       rect:
         serializedVersion: 2
-        x: 753
-        y: 26
-        width: 219
-        height: 78
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1307
+        y: 41
+        width: 79
+        height: 37
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 80c985f8ef6f1ad40bf4ffb0c895cbe0
-      internalID: 1953070009
+      spriteID: 56a71fbb43feeb4458814df5caa516ee
+      internalID: -1094788312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: worm_eaten1_9
+      rect:
+        serializedVersion: 2
+        x: 1424
+        y: 40
+        width: 56
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6452a7b9817d2224583601614feb8acd
+      internalID: 2049478699
       vertices: []
       indices: 
       edges: []
@@ -240,12 +327,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      worms_flipped_0: 489045361
-      worms_flipped_4: 2115286351
-      worms_flipped_5: -273884492
-      worms_flipped_3: 1953070009
-      worms_flipped_1: -930930082
-      worms_flipped_2: -1937500081
+      worm_eaten1_9: 2049478699
+      worm_eaten1_0: -886047620
+      worm_eaten1_5: 539184543
+      worm_eaten1_7: -1017590778
+      worm_eaten1_3: -1782366909
+      worm_eaten1_8: -1094788312
+      worm_eaten1_4: 46944718
+      worm_eaten1_6: -1596745464
+      worm_eaten1_1: -426582562
+      worm_eaten1_2: 863452441
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

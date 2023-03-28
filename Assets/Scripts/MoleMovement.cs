@@ -32,7 +32,11 @@ public class MoleMovement : MonoBehaviour
     private SniffDrawer sniffDrawer;
     private Rigidbody2D rb;
     private Collider2D[] contactsList;
-    private AudioSource audioSource;
+    [SerializeField]
+    private AudioSource eatAudioSource;
+    [SerializeField]
+    private AudioSource digAudioSource;
+    private float defaultDigVolume;
     [SerializeField]
     private AudioClip[] eatNoise;
     [SerializeField]
@@ -45,7 +49,7 @@ public class MoleMovement : MonoBehaviour
         digger = GetComponent<HoleDig>();
         rb = GetComponent<Rigidbody2D>();
         contactsList = new Collider2D[20];
-        audioSource = GetComponent<AudioSource>();
+        defaultDigVolume = digAudioSource.volume;
     }
 
     // Update is called once per frame
@@ -110,14 +114,18 @@ public class MoleMovement : MonoBehaviour
 
             if (digger.DigHole(transform.position + mouseDirection.normalized * 0.5f))   // hole digger make hole
             {
-                if (!audioSource.isPlaying || audioSource.priority < 128)
+                digAudioSource.clip = digNoise[Random.Range(0, digNoise.Length)];      // play random dig noise
+                if (eatAudioSource.isPlaying)      // Dampen noise if currently playing eat noise
                 {
-                    audioSource.clip = digNoise[Random.Range(0, digNoise.Length)];      // play random dig noise
-                    audioSource.priority = 120;
-                    audioSource.Play();
-                    dirtParticle.Play();
+                    digAudioSource.volume = defaultDigVolume * 0.5f;
                 }
-                rumblyFor = 0.2f;
+                else   // otherwise set to default volume
+                {
+                    digAudioSource.volume = defaultDigVolume;
+                }
+                digAudioSource.Play();
+                dirtParticle.Play();        // also play dirt digging particles
+                rumblyFor = 0.2f;           // and make mole rumbly
             }
         }
         else
@@ -129,10 +137,12 @@ public class MoleMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)     // Right now only triggers on grubs (eat)
     {
-        audioSource.clip = eatNoise[Random.Range(0, eatNoise.Length)];      // Play random eating noise
-        audioSource.priority = 128;
-        audioSource.Play();
-        StartCoroutine(EatTimer(eatSlowdownDuration));
+        if (collision.CompareTag("Food"))
+        {
+            eatAudioSource.clip = eatNoise[Random.Range(0, eatNoise.Length)];      // Play random eating noise
+            eatAudioSource.Play();
+            StartCoroutine(EatTimer(eatSlowdownDuration));
+        }
     }
 
     // Testing out a better way of doing timers

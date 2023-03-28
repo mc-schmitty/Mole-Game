@@ -7,6 +7,8 @@ public class HoleDig : MonoBehaviour
     public GameObject holePrefab;
     public float randomOffset = 2f;
     public float maxDigHeight = 18;
+    [SerializeField]
+    private Transform holeParent;       // categorize holes to make it neater in scene view
 
     
     private Dictionary<Vector2, Transform> HoleSet;
@@ -34,7 +36,7 @@ public class HoleDig : MonoBehaviour
             return false;
         }
 
-        var tobj = GameObject.Instantiate(holePrefab, location + new Vector3(Random.Range(-randomOffset, randomOffset), Random.Range(-randomOffset, randomOffset), 0), Quaternion.identity);
+        var tobj = GameObject.Instantiate(holePrefab, location + new Vector3(Random.Range(-randomOffset, randomOffset), Random.Range(-randomOffset, randomOffset), 0), Quaternion.identity, holeParent);
         tobj.name = modLoc.ToString();
         HoleSet.Add(modLoc, tobj.transform);
         return true;

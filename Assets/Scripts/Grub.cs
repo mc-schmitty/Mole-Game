@@ -26,11 +26,11 @@ public class Grub : HiddenObject
     {
         if (collision.attachedRigidbody.CompareTag("Player"))
         {
-            Squash();
+            Squash(collision.attachedRigidbody.gameObject);
         }
     }
 
-    public virtual void Squash()
+    public virtual void Squash(GameObject playerRef)
     {
         //squishParticles.Play();
         //AudioSource.PlayClipAtPoint(squishNoise, transform.position);

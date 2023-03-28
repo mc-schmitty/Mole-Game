@@ -22,6 +22,7 @@ public class MovingGrub : Grub
     private bool isMoving;
     private Coroutine activeCoroutine;
     private Animator animator;       // Animator variable
+    private Collider2D wormCollider; // how we collide
 
     private void OnValidate()
     {
@@ -36,6 +37,7 @@ public class MovingGrub : Grub
         animator = GetComponent<Animator>();
         isMoving = false;
         homePoint = transform.position;
+        wormCollider = GetComponent<Collider2D>();
 
         activeCoroutine = StartCoroutine(BehaviorChange(1f));
     }
@@ -76,6 +78,18 @@ public class MovingGrub : Grub
         
     }
 
+    public override void Squash(GameObject playerRef)
+    {
+        //StopMoving();
+        isMoving = false;
+        StopCoroutine(activeCoroutine);         // Stop movement behaviour
+        animator.SetTrigger("getEaten");
+        dirtParticles.Stop();
+        wormCollider.enabled = false;
+
+        StartCoroutine(BeingEaten(playerRef.transform, 0.8f));      // Begin getting eaten
+    }
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(homePoint, maxWanderRange);
@@ -93,12 +107,31 @@ public class MovingGrub : Grub
         if (isMoving)
         {
             StopMoving();
-            activeCoroutine = StartCoroutine(BehaviorChange(timeWaiting + Random.Range(-randTimeMod*timeWaiting, randTimeMod * timeWaiting)));
+            activeCoroutine = StartCoroutine(BehaviorChange(timeWaiting + Random.Range(-randTimeMod * timeWaiting, randTimeMod * timeWaiting)));
         }
         else
         {
             StartMoving();
             activeCoroutine = StartCoroutine(BehaviorChange(timeMoving + Random.Range(-randTimeMod * timeMoving, randTimeMod * timeMoving)));
         }
+
+    }
+
+    // Delay before getting spaghetti'd up
+    IEnumerator BeingEaten(Transform playerPos, float delay)
+    {
+        // delay so animation plays out
+        while(delay > 0)
+        {
+            Vector3 direction = playerPos.position - transform.position;    // Get direction of player
+            //direction.z = 0;                                                // Have to get rid of the stupid z 
+            transform.rotation = Quaternion.LookRotation(direction.normalized);    // Turn towards direction (and away from player hopefully)
+
+            delay -= Time.deltaTime;
+            yield return null;
+        }
+
+        // Play the particle effects and explode
+        base.Squash(playerPos.gameObject);
     }
 }
