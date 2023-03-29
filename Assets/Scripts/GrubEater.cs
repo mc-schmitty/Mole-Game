@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeedEater : MonoBehaviour
+public class GrubEater : MonoBehaviour
 {
     private MoleMovement mm;
 

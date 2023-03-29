@@ -5017,7 +5017,7 @@ MonoBehaviour:
   hideRange: 8.5
   scentSprite: {fileID: 8959646907276649133, guid: 2e8d667ad7016c74888b563192cecadb, type: 3}
   squishParticles:
-  - {fileID: 6172325226313467183, guid: 79bb4b30b2b35354999a9409e1a535fe, type: 3}
+  - {fileID: 6172325226313467183, guid: 8045aef5227c3c04ba4dfcee4b85b40a, type: 3}
   squishNoise: {fileID: 8300000, guid: 74e699524a8abb641a6bbd6fc47e325a, type: 3}
   revealNoise: {fileID: 8300000, guid: 0bfe78240283f9242b504898db650cf0, type: 3}
   speed: 2
