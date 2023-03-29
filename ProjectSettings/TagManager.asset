@@ -5,14 +5,15 @@ TagManager:
   serializedVersion: 2
   tags:
   - Food
+  - PlayerEat
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Terrain
   - Water
   - UI
-  - 
+  - IgnoreTerrain
   - 
   - 
   - 

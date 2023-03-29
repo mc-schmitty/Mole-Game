@@ -135,14 +135,12 @@ public class MoleMovement : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)     // Right now only triggers on grubs (eat)
+
+    public void EatFoodSlowdown()
     {
-        if (collision.CompareTag("Food"))
-        {
-            eatAudioSource.clip = eatNoise[Random.Range(0, eatNoise.Length)];      // Play random eating noise
-            eatAudioSource.Play();
-            StartCoroutine(EatTimer(eatSlowdownDuration));
-        }
+        eatAudioSource.clip = eatNoise[Random.Range(0, eatNoise.Length)];      // Play random eating noise
+        eatAudioSource.Play();
+        StartCoroutine(EatTimer(eatSlowdownDuration));
     }
 
     // Testing out a better way of doing timers

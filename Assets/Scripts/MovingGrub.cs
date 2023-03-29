@@ -78,7 +78,7 @@ public class MovingGrub : Grub
         
     }
 
-    public override void Squash(GameObject playerRef)
+    public override void Squash(Transform playerRef)
     {
         //StopMoving();
         isMoving = false;
@@ -87,7 +87,7 @@ public class MovingGrub : Grub
         dirtParticles.Stop();
         wormCollider.enabled = false;
 
-        StartCoroutine(BeingEaten(playerRef.transform, 0.8f));      // Begin getting eaten
+        StartCoroutine(BeingEaten(playerRef, 0.8f));      // Begin getting eaten
     }
 
     private void OnDrawGizmosSelected()
@@ -120,18 +120,23 @@ public class MovingGrub : Grub
     // Delay before getting spaghetti'd up
     IEnumerator BeingEaten(Transform playerPos, float delay)
     {
-        // delay so animation plays out
-        while(delay > 0)
-        {
-            Vector3 direction = playerPos.position - transform.position;    // Get direction of player
-            //direction.z = 0;                                                // Have to get rid of the stupid z 
-            transform.rotation = Quaternion.LookRotation(direction.normalized);    // Turn towards direction (and away from player hopefully)
+        Vector3 direction = playerPos.position - transform.position;    // Get direction of player
+        direction.z = 0;                                                // Have to get rid of the stupid z 
+        direction.Normalize();
+        transform.eulerAngles = new Vector3(0, 0, Vector2.SignedAngle(Vector2.left, direction));
+        transform.position = new Vector3(playerPos.position.x, playerPos.position.y, transform.position.z);
 
+        transform.parent = playerPos;
+
+        // delay so animation plays out
+        while (delay > 0)
+        {
+            
             delay -= Time.deltaTime;
             yield return null;
         }
 
         // Play the particle effects and explode
-        base.Squash(playerPos.gameObject);
+        base.Squash(playerPos);
     }
 }
