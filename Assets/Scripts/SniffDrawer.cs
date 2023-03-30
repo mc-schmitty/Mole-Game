@@ -88,16 +88,17 @@ public class SniffDrawer : MonoBehaviour
             float angle = Vector2.SignedAngle(Vector2.up, vect);
 
             // Check if we need to draw object
-            // 1. angle within range; 2. within distance range; 
-            if((Mathf.Abs(sniffAngle - angle) < angleRange || Mathf.Abs(sniffAngle + 360 - angle) < angleRange || Mathf.Abs(sniffAngle - 360 - angle) < angleRange) && vect.magnitude < sniffRange)
+            // 1. angle within range; 2. within distance range; 3. object not revealed
+            if(key.IsHidden && (Mathf.Abs(sniffAngle - angle) < angleRange || Mathf.Abs(sniffAngle + 360 - angle) < angleRange || Mathf.Abs(sniffAngle - 360 - angle) < angleRange) && vect.magnitude < sniffRange)
             {
                 Vector3 newV = currentPos + (vect.normalized * radius);
                 newV.z = 0;
                 value.transform.position = newV;
                 
-                value.color = new Color(value.color.r, value.color.g, value.color.b, Mathf.Lerp(0, 1, sniffStrength / sniffMax));   // Alpha scales to sniff strength
-                // Scale scales to distance (0.5 - 0.01)scale, (1 - 100)
-                value.transform.localScale = Vector3.one * Mathf.Lerp(0.01f, 0.40f, Mathf.InverseLerp(50f, 1f, vect.magnitude));
+                value.color = new Color(value.color.r, value.color.g, value.color.b, Mathf.Clamp(Mathf.Lerp(0, 0.8f, sniffStrength / sniffMax), 0, value.color.a + 2*Time.deltaTime));   // Alpha scales to sniff strength
+                //Debug.Log(0.005 + "  " + Time.deltaTime + "   " + 2 * Time.deltaTime);        // In addition, a time-scaled interval means it will always take at least 0.5s to fade from 0 -> 1 (so new scents dont pop up immediately)
+                // Scale scales to distance (0.5 - 0.1)scale, (1 - 100)
+                value.transform.localScale = Vector3.one * Mathf.Lerp(0.1f, 0.40f, Mathf.InverseLerp(50f, 1f, vect.magnitude));
             }
             else
             {

@@ -13,7 +13,7 @@ public class Grub : HiddenObject
     private AudioClip squishNoise;
     [SerializeField]
     private AudioClip revealNoise;
-    private AudioSource squishPlayer;
+    protected AudioSource squishPlayer;
 
     private void Start()
     {
@@ -24,13 +24,14 @@ public class Grub : HiddenObject
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.attachedRigidbody.CompareTag("Player"))
+        if (collision.attachedRigidbody.CompareTag("Player") && collision.CompareTag("PlayerEat"))
         {
-            Squash();
+            Squash(collision.transform);
         }
     }
 
-    public void Squash()
+    // Transform may be used to play particles at the mouth location, etc
+    public virtual void Squash(Transform playerRef)
     {
         //squishParticles.Play();
         //AudioSource.PlayClipAtPoint(squishNoise, transform.position);

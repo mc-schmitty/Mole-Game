@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 608650290, guid: 19c7ac12a62818d4a8bc59c29b99565e, type: 3}
+  m_Sprite: {fileID: 2038314657, guid: 44d9dfe3d0e28bf48b9d45549d0245ed, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4976,6 +4976,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f38a4519fbaa743b1fe0c0d1335455, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  revealRange: 50
+  hideRange: 100
+  scentSprite: {fileID: 0}
   squishParticles: []
   squishNoise: {fileID: 8300000, guid: 74e699524a8abb641a6bbd6fc47e325a, type: 3}
   revealNoise: {fileID: 8300000, guid: 8b8b81dec260e6247af376eb98730192, type: 3}
@@ -4986,7 +4989,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6172325226313467185}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 74e699524a8abb641a6bbd6fc47e325a, type: 3}
