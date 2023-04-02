@@ -24,7 +24,7 @@ public class Grub : HiddenObject
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.attachedRigidbody.CompareTag("Player") && collision.CompareTag("PlayerEat"))
+        if (collision.CompareTag("PlayerEat") && collision.attachedRigidbody.CompareTag("Player"))
         {
             Squash(collision.transform);
         }
