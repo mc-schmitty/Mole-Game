@@ -17,7 +17,8 @@ public class ScaredyGrub : Grub
         get;
     }
 
-    private Vector3 scaredDirection;
+    private Rigidbody2D rb;
+    private Vector2 scaredDirection;
     private Transform playerPos;
     private Coroutine runningRoutine;
     
@@ -26,6 +27,7 @@ public class ScaredyGrub : Grub
     {
         base.Initilize();
         squishPlayer = GetComponent<AudioSource>();
+        rb = GetComponent<Rigidbody2D>();
         //dirtParticles = GetComponent<ParticleSystem>();
         //animator = GetComponent<Animator>();
         IsRunning = false;
@@ -38,7 +40,6 @@ public class ScaredyGrub : Grub
         if(playerPos == null)
             playerPos = FindObjectOfType<MoleMovement>().transform;     // Get position of player using find please stop hitting me
         scaredDirection = transform.position - playerPos.position;
-        scaredDirection.z = 0;                                          // Get rid of Z
         scaredDirection.Normalize();
 
         IsRunning = true;       // Flag that we start running
@@ -56,19 +57,51 @@ public class ScaredyGrub : Grub
     private void OnCollisionEnter2D(Collision2D collision)      // quick fix, will be refined later
     {
         IsRunning = false;
+        StopCoroutine(runningRoutine);
+        
+
+        Debug.Log(collision.contactCount);
+        foreach (var item in collision.contacts)
+        {
+            Debug.DrawRay(item.point, item.normal * 100, Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f), 10f);
+        }
+        scaredDirection = Vector2.Perpendicular(collision.GetContact(0).normal);    // Run perpendicular to normal now
+        runningRoutine = StartCoroutine(GetStunned(0.5f));
+
     }
 
     IEnumerator RunAway()
     {
+        // Stop movement
+        rb.velocity = Vector2.zero;
+        rb.angularVelocity = 0;
+
         // snap rotate away from player
-        transform.eulerAngles = new Vector3(0, 0, Vector2.SignedAngle(Vector2.right, scaredDirection));
+        rb.SetRotation(Vector2.SignedAngle(Vector2.right, scaredDirection));
         // ok for now im not bothering with a curve
         float timeStep = 0;
         while (IsRunning)
         {
-            transform.position += scaredDirection * Mathf.Lerp(initSpeed, maxSpeed, timeStep) * Time.deltaTime;
-            timeStep = Mathf.Min(timeStep + Time.deltaTime, 1);     // temp, takes 1 second to accelerate to max
-            yield return null;
+            rb.MovePosition(rb.position + scaredDirection * Mathf.Lerp(initSpeed, maxSpeed, timeStep) * Time.fixedDeltaTime);
+            timeStep = Mathf.Min(timeStep + Time.fixedDeltaTime, 1);     // temp, takes 1 second to accelerate to max
+            yield return new WaitForFixedUpdate();
         }
+    }
+
+    IEnumerator GetStunned(float timeStunned)
+    {
+        // setup animation stuff here to show we're stunned
+
+        while(timeStunned > 0)
+        {
+            yield return null;
+            timeStunned -= Time.deltaTime;
+        }
+
+        // ok stun over, now run again
+        IsRunning = true;
+        runningRoutine = StartCoroutine(RunAway());
+        // Running direction was previously set
+
     }
 }
